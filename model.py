@@ -8,9 +8,9 @@ import os
 
 print("Loading data...")
 try:
-    df = pd.read_csv('Saudi_Supply_Chain.csv', encoding='utf-8')
+    df = pd.read_csv('Saudi_Supply_Chain_Lite.csv', encoding='utf-8')
 except:
-    df = pd.read_csv('Saudi_Supply_Chain.csv', encoding='ISO-8859-1')
+    df = pd.read_csv('Saudi_Supply_Chain_Lite.csv', encoding='ISO-8859-1')
 
 
 df = df[['Shipping Mode', 'Order City', 'Category Name', 'Customer Segment', 'Order Item Quantity', 'Delivery Status']]
@@ -57,4 +57,5 @@ joblib.dump(le_category, 'le_category.pkl', compress=3)
 joblib.dump(le_segment, 'le_segment.pkl', compress=3)
 
 size_mb = os.path.getsize('my_model.pkl') / (1024 * 1024)
+
 print(f"Done. Model size is now: {size_mb:.2f} MB")
